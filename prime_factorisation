@@ -1,0 +1,30 @@
+
+n0 = int(input("\nPlease enter a number: "))
+
+fact_list, fact_dict = [], {}
+n = n0
+
+for x in range(2, int(n / 2) + 1):
+
+    while n % x == 0:
+
+        fact_list.append(x)
+        n = int(n / x)
+
+        if n == 1:
+            break
+
+    if n == 1:
+        break
+
+for x in fact_list:
+
+    if x in fact_dict.keys():
+        fact_dict[x] += 1
+    else:
+        fact_dict[x] = 1
+
+exp_list = [f"{x}^{fact_dict[x]}" for x in fact_dict]
+exp_list_print = " * ".join(exp_list)
+
+print(f"{exp_list_print} = {n0}")
